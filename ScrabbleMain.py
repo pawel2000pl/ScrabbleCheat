@@ -122,6 +122,7 @@ class ScrabbleMain(object):
         
     @cherrypy.expose
     def calculate(self, letters=None, blanks=None):
+        self.setDefaults()
         if letters is not None and blanks is not None:
             cherrypy.session['letters'] = letters
             try:
