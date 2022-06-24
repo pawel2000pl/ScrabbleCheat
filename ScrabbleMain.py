@@ -29,7 +29,7 @@ def mainTable(topleft="", topright="", bottomleft="", bottomright=""):
     return '<table style="background-color:MediumSeaGreen;"><tr><td>'+topleft+'</td><td>'+topright+'</td></tr><tr><td>'+bottomleft+'</td><td>'+bottomright+'</td></tr></table>'
     
 def boardToHtml(board, wordToApply=None, editMode=False):    
-    result = ['<form method="post" action="index"><table>']
+    result = ['<form method="post" autocomplete="off" action="index"><table>']
     
     fieldColors = dict()
     fieldColors[FieldType.Normal] = "SeaGreen"
