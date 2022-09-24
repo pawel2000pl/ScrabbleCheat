@@ -239,7 +239,7 @@ class ScrabbleBoard:
         results = []
         for place in places:
             if place.parse(wordAsList):
-                result.extend(place.createRankedWords(wordAsList))
+                results.extend(place.createRankedWords(wordAsList))
         return results
         
     def getPossibleWorlds(self, letterList, blankCount, progress: dict = None):

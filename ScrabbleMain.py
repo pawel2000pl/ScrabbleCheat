@@ -1,7 +1,14 @@
 import cherrypy
-from PolishScrabble import getPolishScrabbleBoard
-from threading import Thread
 from ScrabbleFields import FieldType
+from threading import Thread
+
+from os.path import isfile
+if isfile("cython/PolishScrabble.so"):
+    print("Using cython")
+    from cython.PolishScrabble import getPolishScrabbleBoard
+else:
+    from PolishScrabble import getPolishScrabbleBoard
+    
 
 class ScrabbleThread(Thread):
     
@@ -217,8 +224,12 @@ class ScrabbleMain(object):
         return wrapInBody(mainTable(topleft=boardToHtml(board, wordToApply=wordToApply, editMode=editMode), bottomleft=editModeLink, topright=pageMenu + wordsToStr + self.showProgress(), bottomright=self.getWordForm()))
     
 
-if __name__ == '__main__':    
+def runServer():
     conf = {'/': {'tools.sessions.on': True}}
     cherrypy.server.socket_host = "0.0.0.0" 
     cherrypy.server.socket_port = 8080
     cherrypy.quickstart(ScrabbleMain(), '/', conf)
+    
+
+if __name__ == '__main__':   
+    runServer()

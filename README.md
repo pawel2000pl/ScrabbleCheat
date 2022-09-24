@@ -21,6 +21,6 @@ Points are calculating with respecting player's blanks and with blanks on the bo
 You need a file with words which looks like <i>PolishWords.py</i> <br>
 See the file <i>PolishScrabble.py</i>. <br>
 There you can see that it is needed a dictionary which looks like <i>polishWordScores</i>. <br>
-Then you have to create a alphabet from the dictionary <br>
+Then you have to create an alphabet from the dictionary <br>
 and create a <i>WordList</i> with this alphabet and the word list. <br>
 At last you must replace <i>getPolishScrabbleBoard</i> in <i>ScrabbleMain.py</i> with your new function. <br>
