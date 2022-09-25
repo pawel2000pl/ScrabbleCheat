@@ -1,15 +1,8 @@
 import cherrypy
 from ScrabbleFields import FieldType
 from threading import Thread
-
-from os.path import isfile
-if isfile("cython/PolishScrabble.so"):
-    print("Using cython")
-    from cython.PolishScrabble import getPolishScrabbleBoard
-else:
-    from PolishScrabble import getPolishScrabbleBoard
+from PolishScrabble import getPolishScrabbleBoard
     
-
 class ScrabbleThread(Thread):
     
     def __init__(self, board, letters, blanks):
